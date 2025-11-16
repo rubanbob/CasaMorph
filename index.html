@@ -15,6 +15,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: #333;
             line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         /* Header Styles */
@@ -25,6 +26,7 @@
             top: 0;
             z-index: 1000;
             padding: 1rem 0;
+            transition: background-color 0.3s;
         }
 
         .header-container {
@@ -41,6 +43,7 @@
             font-weight: bold;
             color: #2c3e50;
             text-decoration: none;
+            transition: color 0.3s;
         }
 
         nav ul {
@@ -78,13 +81,13 @@
         }
 
         .icon-image {
-            width: 24px;
-            height: 24px;
+            width: 20px;
+            height: 20px;
             object-fit: contain;
             transition: transform 0.3s;
         }
 
-        .icon-link:hover .icon-image {
+         .icon-link:hover .icon-image {
             transform: scale(1.2);
         }
 
@@ -108,6 +111,7 @@
             position: relative;
             overflow: hidden;
             background: #f8f9fa;
+            transition: background-color 0.3s;
         }
 
         .banner-container {
@@ -121,6 +125,7 @@
             align-items: center;
             padding: 2rem 2rem;
             background: #f8f9fa;
+            transition: background-color 0.3s;
         }
 
         .banner-content {
@@ -153,12 +158,14 @@
             font-size: 3rem;
             color: #2c3e50;
             margin-bottom: 1rem;
+            transition: color 0.3s;
         }
 
         .banner-text p {
             font-size: 1.2rem;
             color: #666;
             margin-bottom: 2rem;
+            transition: color 0.3s;
         }
 
         .btn-primary {
@@ -216,7 +223,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: background 0.3s;
+            transition: background 0.3s, color 0.3s;
         }
 
         .slider-arrow:hover {
@@ -243,6 +250,7 @@
             text-align: center;
             margin-bottom: 3rem;
             color: #2c3e50;
+            transition: color 0.3s;
         }
 
         .category-grid {
@@ -310,7 +318,7 @@
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
             position: relative;
         }
 
@@ -328,6 +336,7 @@
             justify-content: center;
             overflow: hidden;
             position: relative;
+            transition: background-color 0.3s;
         }
 
         .product-image img {
@@ -362,7 +371,7 @@
             align-items: center;
             justify-content: center;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            transition: background 0.3s;
+            transition: background 0.3s, color 0.3s;
         }
 
         .action-btn:hover {
@@ -379,6 +388,7 @@
             font-weight: 600;
             margin-bottom: 0.5rem;
             color: #2c3e50;
+            transition: color 0.3s;
         }
 
         .product-price {
@@ -395,8 +405,9 @@
         .bottom-banner {
             background: #2c3e50;
             color: white;
-            padding: 4rem 2rem;
+            padding: 4rem 2rem 2rem;
             text-align: center;
+            transition: background-color 0.3s;
         }
 
         .bottom-banner-content {
@@ -413,6 +424,131 @@
             font-size: 1.2rem;
             margin-bottom: 2rem;
             opacity: 0.9;
+        }
+
+        .theme-toggle {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .theme-toggle-label {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            opacity: 0.8;
+        }
+
+        .theme-switch {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(255,255,255,0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        .theme-option {
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .theme-option.active {
+            background: #e67e22;
+            color: white;
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background: #1a1a1a;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode header {
+            background: #2d2d2d;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        body.dark-mode .logo {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode nav a {
+            color: #b0b0b0;
+        }
+
+        body.dark-mode nav a:hover {
+            color: #e67e22;
+        }
+
+        body.dark-mode .icon {
+            color: #b0b0b0;
+        }
+
+        body.dark-mode .menu-toggle span {
+            background: #e0e0e0;
+        }
+
+        body.dark-mode .banner-slider {
+            background: #2d2d2d;
+        }
+
+        body.dark-mode .banner-slide {
+            background: #2d2d2d;
+        }
+
+        body.dark-mode .banner-text h1 {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .banner-text p {
+            color: #b0b0b0;
+        }
+
+        body.dark-mode .slider-arrow {
+            background: rgba(45,45,45,0.9);
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .slider-arrow:hover {
+            background: #2d2d2d;
+        }
+
+        body.dark-mode .section-title {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .category-card {
+            background: #2d2d2d;
+        }
+
+        body.dark-mode .product-card {
+            background: #2d2d2d;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        body.dark-mode .product-image {
+            background: #1a1a1a;
+        }
+
+        body.dark-mode .product-name {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .action-btn {
+            background: #3d3d3d;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .section {
+            background: #1a1a1a;
+        }
+
+        body.dark-mode .bottom-banner {
+            background: #1a1a1a;
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
 
         /* Responsive Design */
@@ -800,139 +936,11 @@
             <h2>Design Your Perfect Space</h2>
             <p>Free shipping on orders over $500 | 30-day returns | Expert design consultation available</p>
             <button class="btn-primary">Get Started</button>
-        </div>
-    </section>
-
-    <script>
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.banner-slide');
-        const totalSlides = slides.length;
-        const container = document.getElementById('bannerContainer');
-        const controlsContainer = document.getElementById('sliderControls');
-        let autoSlideInterval;
-
-        // Touch/Swipe variables
-        let startX = 0;
-        let currentX = 0;
-        let isDragging = false;
-        let startPos = 0;
-
-        // Create dots
-        for (let i = 0; i < totalSlides; i++) {
-            const dot = document.createElement('div');
-            dot.className = 'slider-dot';
-            if (i === 0) dot.classList.add('active');
-            dot.onclick = () => goToSlide(i);
-            controlsContainer.appendChild(dot);
-        }
-
-        function updateSlider() {
-            container.style.transform = `translateX(-${currentSlide * 100}%)`;
             
-            const dots = document.querySelectorAll('.slider-dot');
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentSlide);
-            });
-        }
-
-        function changeSlide(direction) {
-            currentSlide += direction;
-            if (currentSlide < 0) currentSlide = totalSlides - 1;
-            if (currentSlide >= totalSlides) currentSlide = 0;
-            updateSlider();
-        }
-
-        function goToSlide(index) {
-            currentSlide = index;
-            updateSlider();
-            resetAutoSlide();
-        }
-
-        // Touch/Mouse events for swipe
-        container.addEventListener('mousedown', dragStart);
-        container.addEventListener('touchstart', dragStart, { passive: true });
-        container.addEventListener('mousemove', drag);
-        container.addEventListener('touchmove', drag, { passive: false });
-        container.addEventListener('mouseup', dragEnd);
-        container.addEventListener('touchend', dragEnd);
-        container.addEventListener('mouseleave', dragEnd);
-
-        function dragStart(e) {
-            isDragging = true;
-            startX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-            const startY = e.type.includes('mouse') ? e.pageY : e.touches[0].clientY;
-            startPos = currentSlide * -100;
-            container.style.transition = 'none';
-            
-            // Store initial Y position for vertical scroll detection
-            container.dataset.startY = startY;
-        }
-
-        function drag(e) {
-            if (!isDragging) return;
-            
-            currentX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-            const currentY = e.type.includes('mouse') ? e.pageY : e.touches[0].clientY;
-            const startY = parseFloat(container.dataset.startY);
-            
-            const diffX = Math.abs(currentX - startX);
-            const diffY = Math.abs(currentY - startY);
-            
-            // Only prevent default and slide if horizontal swipe is dominant
-            if (diffX > diffY && diffX > 10) {
-                e.preventDefault();
-                const diff = currentX - startX;
-                const percentageDiff = (diff / container.offsetWidth) * 100;
-                container.style.transform = `translateX(${startPos + percentageDiff}%)`;
-            } else if (diffY > diffX) {
-                // Vertical swipe detected - allow normal scroll
-                isDragging = false;
-                container.style.transition = 'transform 0.5s ease';
-                updateSlider();
-            }
-        }
-
-        function dragEnd(e) {
-            if (!isDragging) return;
-            isDragging = false;
-            
-            container.style.transition = 'transform 0.5s ease';
-            
-            const diff = currentX - startX;
-            const threshold = container.offsetWidth * 0.2; // 20% swipe threshold
-            
-            if (diff > threshold) {
-                // Swipe right
-                changeSlide(-1);
-            } else if (diff < -threshold) {
-                // Swipe left
-                changeSlide(1);
-            } else {
-                updateSlider();
-            }
-            
-            resetAutoSlide();
-        }
-
-        // Auto-advance slider
-        function startAutoSlide() {
-            autoSlideInterval = setInterval(() => {
-                changeSlide(1);
-            }, 5000);
-        }
-
-        function resetAutoSlide() {
-            clearInterval(autoSlideInterval);
-            startAutoSlide();
-        }
-
-        startAutoSlide();
-
-        // Mobile menu toggle
-        function toggleMenu() {
-            const nav = document.getElementById('mainNav');
-            nav.classList.toggle('active');
-        }
-    </script>
-</body>
-</html>
+            <div class="theme-toggle">
+                <div class="theme-toggle-label">Theme</div>
+                <div class="theme-switch">
+                    <span class="theme-option active" id="lightMode" onclick="setTheme('light')">☀️ Light</span>
+                    <span class="theme-option" id="darkMode" onclick="setTheme('dark')">🌙 Dark</span>
+                </div>
+            </div
