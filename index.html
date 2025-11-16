@@ -866,10 +866,15 @@
 
         function drag(e) {
             if (!isDragging) return;
-            e.preventDefault();
             
             currentX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
             const diff = currentX - startX;
+            
+            // Only prevent default for significant horizontal movement
+            if (Math.abs(diff) > 10) {
+                e.preventDefault();
+            }
+            
             const percentageDiff = (diff / container.offsetWidth) * 100;
             
             container.style.transform = `translateX(${startPos + percentageDiff}%)`;
