@@ -850,9 +850,9 @@
 
         // Touch/Mouse events for swipe
         container.addEventListener('mousedown', dragStart);
-        container.addEventListener('touchstart', dragStart);
+        container.addEventListener('touchstart', dragStart, { passive: true });
         container.addEventListener('mousemove', drag);
-        container.addEventListener('touchmove', drag);
+        container.addEventListener('touchmove', drag, { passive: false });
         container.addEventListener('mouseup', dragEnd);
         container.addEventListener('touchend', dragEnd);
         container.addEventListener('mouseleave', dragEnd);
@@ -860,24 +860,36 @@
         function dragStart(e) {
             isDragging = true;
             startX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+            const startY = e.type.includes('mouse') ? e.pageY : e.touches[0].clientY;
             startPos = currentSlide * -100;
             container.style.transition = 'none';
+            
+            // Store initial Y position for vertical scroll detection
+            container.dataset.startY = startY;
         }
 
         function drag(e) {
             if (!isDragging) return;
             
             currentX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-            const diff = currentX - startX;
+            const currentY = e.type.includes('mouse') ? e.pageY : e.touches[0].clientY;
+            const startY = parseFloat(container.dataset.startY);
             
-            // Only prevent default for significant horizontal movement
-            if (Math.abs(diff) > 10) {
+            const diffX = Math.abs(currentX - startX);
+            const diffY = Math.abs(currentY - startY);
+            
+            // Only prevent default and slide if horizontal swipe is dominant
+            if (diffX > diffY && diffX > 10) {
                 e.preventDefault();
+                const diff = currentX - startX;
+                const percentageDiff = (diff / container.offsetWidth) * 100;
+                container.style.transform = `translateX(${startPos + percentageDiff}%)`;
+            } else if (diffY > diffX) {
+                // Vertical swipe detected - allow normal scroll
+                isDragging = false;
+                container.style.transition = 'transform 0.5s ease';
+                updateSlider();
             }
-            
-            const percentageDiff = (diff / container.offsetWidth) * 100;
-            
-            container.style.transform = `translateX(${startPos + percentageDiff}%)`;
         }
 
         function dragEnd(e) {
